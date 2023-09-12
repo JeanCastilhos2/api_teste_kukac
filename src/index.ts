@@ -1,6 +1,7 @@
 import express from "express"
 import { config } from "dotenv"
 import cors from "cors"
+import defineRoutes from './routes/defineRoutes';
 
 const start = async () => {
     config()
@@ -15,6 +16,7 @@ const start = async () => {
     console.log("Establishing database connection...")
     console.log("Starting application server...")
 
+    app.use('/', defineRoutes); //Definindo Rotas
     
     app.listen(port, () => {
         console.log(`Server's running in http://localhost:${port}`)
