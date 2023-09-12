@@ -1,6 +1,6 @@
 import { Troco } from "../../models/trocoModel";
 
-function calcularTroco(valorCompra: number, valorEntregue: number): Troco {
+function getTrocoService(valorCompra: number, valorEntregue: number): Troco {
     const troco: Troco = {
       valorCompra,
       valorEntregue,
@@ -27,5 +27,5 @@ function calcularTroco(valorCompra: number, valorEntregue: number): Troco {
     return troco;
   }
   
-  export { calcularTroco };
+  export { getTrocoService };
   
