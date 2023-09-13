@@ -1,21 +1,23 @@
 import express from 'express';
-import { createVeiculo } from '../controllers/veiculo/createVeiculo';
-import { listVeiculos } from '../controllers/veiculo/listVeiculos';
-import { getPalindromos } from '../controllers/palindromos/getPalindromos';
-import { getTroco } from '../controllers/troco/getTroco';
+import { palindromosController } from '../controllers/palindromos/palindromosController';
+import { cadastrarCarroController, cadastrarMotoController, listarVeiculosController } from '../controllers/veiculo/veiculo-controller';
+import { trocoController } from '../controllers/troco/trocoController';
 
 const router = express.Router();
 
-// Rota para criar um novo veículo
-router.post('/veiculos', createVeiculo);
+// Rota para criar um novo Carro
+router.post('/carro', cadastrarCarroController);
 
-// Rota para listar todos os veículos
-router.get('/veiculos', listVeiculos);
+// Rota para criar um nova Moto
+router.post('/moto', cadastrarMotoController);
 
-// Rota para buscar palindromos
-router.get('/palindromos', getPalindromos);
+// Rota para listar todos os Veículos
+router.get('/veiculos', listarVeiculosController);
 
-//Rota para calcular o troco
-router.get('/troco', getTroco)
+// Rota para buscar Palindromos
+router.get('/palindromos', palindromosController);
+
+//Rota para calcular o Troco
+router.get('/troco', trocoController)
 
 export default router;

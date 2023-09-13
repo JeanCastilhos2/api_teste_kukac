@@ -1,45 +1,33 @@
-interface Veiculo {
-    modelo: string;
-    anoFabricacao: number;
-    quantidadePortas?: number;
-    marca: string;
-    rodas?: number;
-    passageiros?: number;
-  }
-  
-  class Carro implements Veiculo {
-    modelo: string;
-    anoFabricacao: number;
-    quantidadePortas: number;
-    marca: string;
-  
-    constructor(modelo: string, anoFabricacao: number, quantidadePortas: number, marca: string) {
-      this.modelo = modelo;
-      this.anoFabricacao = anoFabricacao;
-      if (quantidadePortas >= 2 && quantidadePortas <= 4) {
-        this.quantidadePortas = quantidadePortas;
-      } else {
-        throw new Error('A quantidade de portas deve estar entre 2 e 4 para um carro.');
-      }
-      this.marca = marca;
+export interface Veiculo {
+  modelo: string;
+  anoFabricacao: number;
+  marca: string;
+}
+
+export class Carro implements Veiculo {
+  constructor(
+    public modelo: string,
+    public anoFabricacao: number,
+    public quantidadePortas: number,
+    public marca: string
+  ) {
+    if (quantidadePortas < 2 || quantidadePortas > 4) {
+      throw new Error("Quantidade de portas inválida para um carro.");
     }
   }
+}
+
+export class Moto implements Veiculo {
+  readonly rodas: number = 2;
   
-  class Moto implements Veiculo {
-    modelo: string;
-    anoFabricacao: number;
-    marca: string;
-    rodas: number;
-    passageiros: number;
-  
-    constructor(modelo: string, anoFabricacao: number, marca: string, rodas: number, passageiros: number) {
-      this.modelo = modelo;
-      this.anoFabricacao = anoFabricacao;
-      this.rodas = rodas;
-      this.passageiros = passageiros;
-      this.marca = marca;
+  constructor(
+    public modelo: string,
+    public anoFabricacao: number,
+    public marca: string,
+    public passageiros: number
+  ) {
+    if (passageiros < 1 || passageiros > 2) {
+      throw new Error("Número de passageiros inválido para uma moto.");
     }
   }
-  
-  export { Veiculo, Carro, Moto };
-  
+}

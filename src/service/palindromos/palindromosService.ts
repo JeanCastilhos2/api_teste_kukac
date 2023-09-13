@@ -4,7 +4,7 @@ function isPalindrome(num: number): boolean {
     return strNum === reversedStr;
   }
   
-  function getPalindromosService(noInicio: number, noFim: number): number[] {
+  function palindromosService(noInicio: number, noFim: number): number[] {
     const palindromos: number[] = [];
   
     for (let i = noInicio; i <= noFim; i++) {
@@ -16,5 +16,5 @@ function isPalindrome(num: number): boolean {
     return palindromos;
   }
   
-  export { getPalindromosService };
+  export { palindromosService };
   

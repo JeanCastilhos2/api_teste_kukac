@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { getPalindromosService } from '../../service/palindromos/getPalindromosService';
+import { palindromosService } from '../../service/palindromos/palindromosService';
 import { Resultado } from '../../models/palindromosModel';
 
-async function getPalindromos(req: Request, res: Response): Promise<void> {
+async function palindromosController(req: Request, res: Response): Promise<void> {
   try {
     const { numInicio, numFim } = req.query;
 
@@ -19,7 +19,7 @@ async function getPalindromos(req: Request, res: Response): Promise<void> {
       return;
     }
 
-    const numerosPalindromos = getPalindromosService(inicio, fim);
+    const numerosPalindromos = palindromosService(inicio, fim);
 
     const resultado: Resultado = {
       numerosPalindromos,
@@ -31,4 +31,4 @@ async function getPalindromos(req: Request, res: Response): Promise<void> {
   }
 }
 
-export { getPalindromos };
+export { palindromosController };

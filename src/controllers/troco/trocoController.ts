@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { getTrocoService } from '../../service/troco/getTrocoService';
+import { trocoService } from '../../service/troco/TrocoService';
 
-async function getTroco(req: Request, res: Response): Promise<void> {
+async function trocoController(req: Request, res: Response): Promise<void> {
     try {
         const { valorCompra, valorEntregue } = req.query;
 
@@ -18,7 +18,7 @@ async function getTroco(req: Request, res: Response): Promise<void> {
             return;
         }
 
-        const troco = getTrocoService(compra, entregue);
+        const troco = trocoService(compra, entregue);
 
         res.status(200).json(troco);
     } catch (error) {
@@ -26,6 +26,6 @@ async function getTroco(req: Request, res: Response): Promise<void> {
     }
 }
 
-export { getTroco };
+export { trocoController };
 
 
