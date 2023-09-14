@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { trocoService } from '../../service/troco/TrocoService';
+import { trocoService } from '../../service/troco/trocoService';
+
 
 async function trocoController(req: Request, res: Response): Promise<void> {
     try {

@@ -16,7 +16,7 @@ const start = async () => {
     console.log("Establishing database connection...")
     console.log("Starting application server...")
 
-    app.use('/', defineRoutes); //Definindo Rotas
+    app.use('/', defineRoutes); 
     
     app.listen(port, () => {
         console.log(`Server's running in http://localhost:${port}`)
